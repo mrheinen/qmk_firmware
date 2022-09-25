@@ -61,7 +61,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T,                                       KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSPC,
       CTL_ESC, LSFT_T(KC_A), LT(5,KC_S), LT(1,KC_D), LT(3,KC_F), KC_G,            KC_H, LT(4,KC_J), LT(2,KC_K), LT(6,KC_L), LSFT_T(KC_SCLN), CTL_QUOT,
       KC_LSFT, KC_Z, LCTL_T(KC_X), LALT_T(KC_C), KC_V, KC_B, KC_TRNS, KC_TRNS,    KC_TRNS, KC_TRNS, KC_N, KC_M, LALT_T(KC_COMM), LCTL_T(KC_DOT), KC_SLSH, KC_RSFT,
-      KC_NO, KC_LGUI, KC_P0, KC_BSPC, NAV,                                        SYM, LT(7,KC_SPC), KC_P1, KC_RGUI, KC_APP
+      KC_NO, KC_NO, LCTL_T(KC_TAB), KC_BSPC, NAV,                                  SYM, LT(7,KC_SPC), GUI_T(KC_ENT), KC_RGUI, KC_APP
     ),
 
     [_MOUSE] = LAYOUT (
