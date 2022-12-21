@@ -2,6 +2,7 @@
 
 enum layer_names {
     _HOME,
+    _PUNCT,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -23,6 +24,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		KC_UP  ,KC_DOWN,KC_LBRC,KC_RBRC,
            KC_LCTL,KC_RGUI,
            KC_PGUP,
-           KC_PGDN,KC_ENTER ,KC_SPC
-    )
+           KC_PGDN,LT(_PUNCT,KC_ENTER) ,KC_SPC
+    ),
+
+[_PUNCT] = LAYOUT(
+           KC_NO,    KC_NO  ,KC_NO  ,KC_NO  ,KC_NO  ,KC_NO  ,KC_NO  ,KC_NO  ,KC_NO,
+           KC_NO  ,  KC_NO  ,KC_NO  ,KC_NO  ,KC_NO  ,KC_NO  ,
+           KC_NO  ,  KC_NO  ,KC_NO  ,KC_LCBR  ,KC_RCBR  ,KC_NO  ,
+           KC_NO  ,  KC_NO  ,KC_HASH ,KC_LPRN  ,KC_RPRN  ,KC_NO  ,
+           KC_NO  ,  KC_NO  ,KC_NO  ,KC_LBRC  ,KC_RBRC  ,KC_NO  ,
+                   KC_NO  ,KC_NO  ,KC_NO  ,KC_NO  ,
+			   KC_NO  ,KC_NO  ,
+                                    KC_NO  ,
+                           KC_BSPC    ,KC_NO    ,KC_NO  ,
+    KC_NO  ,KC_NO   ,KC_NO    ,KC_NO   ,KC_NO    ,KC_NO  ,KC_NO, KC_NO, KC_NO  ,
+	KC_NO  ,KC_NO   ,KC_NO    ,KC_NO   ,KC_NO    ,KC_NO  ,
+	KC_NO  ,KC_GRV  ,KC_SLSH  ,KC_BSLS ,KC_NO ,KC_NO  ,
+	KC_NO  ,KC_COLN ,KC_SCLN  ,KC_DLR  ,KC_NO ,KC_NO  ,
+	KC_NO  ,KC_MINS ,KC_EQL   ,KC_NO   ,KC_NO ,KC_NO  ,
+		KC_NO  ,KC_NO  ,KC_NO  ,KC_NO ,
+           KC_NO  ,KC_NO  ,
+           KC_NO  ,
+           KC_NO  ,KC_NO    ,KC_NO
+    ),
 };
