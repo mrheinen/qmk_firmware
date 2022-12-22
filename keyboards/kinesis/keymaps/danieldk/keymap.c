@@ -1,5 +1,9 @@
 #include QMK_KEYBOARD_H
 
+enum custom_keycodes {
+    SCRNS = SAFE_RANGE,
+};
+
 enum layer_names {
     _HOME,
     _PUNCT,
@@ -16,7 +20,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 			   KC_LGUI,KC_LALT,
                                     KC_HOME,
                            KC_BSPC,KC_DEL ,KC_END ,
-    KC_F9  ,KC_F10 ,KC_F11 ,KC_F12 ,KC_PSCR ,KC_SCRL  ,KC_PAUS, KC_NO, QK_BOOT,
+    KC_F9  ,KC_F10 ,KC_F11 ,KC_F12 ,SCRNS  ,KC_SCRL  ,KC_PAUS, KC_NO, QK_BOOT,
 	KC_6   ,KC_7   ,KC_8   ,KC_9   ,KC_0,   KC_MINS,
 	KC_J   ,KC_L   ,KC_U   ,KC_Y   ,KC_SCLN,KC_BSLS,
 	KC_M   ,KC_N   ,KC_E   ,KC_I   ,KC_O,   KC_QUOT,
@@ -48,3 +52,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
            KC_NO  ,KC_NO    ,KC_NO
     ),
 };
+
+bool process_record_user(uint16_t keycode, keyrecord_t* record) {
+    switch (keycode) {
+        case SCRNS:
+        SEND_STRING(SS_LGUI(SS_LSFT(SS_TAP(X_4))));
+        return false;
+    }
+    return true;
+}
