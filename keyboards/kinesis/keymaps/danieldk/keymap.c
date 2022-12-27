@@ -7,6 +7,7 @@ enum custom_keycodes {
 enum layer_names {
     _HOME,
     _PUNCT,
+    _NAV,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -19,7 +20,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_GRV, KC_CAPS,KC_LEFT,KC_RGHT,
                     KC_LGUI,KC_LALT,
                             KC_HOME,
-            KC_BSPC,KC_DEL, KC_END,
+            KC_BSPC,TO(_NAV),KC_END,
 
     KC_F9,  KC_F10, KC_F11, KC_F12, SCRNS,  KC_VOLD,  KC_VOLU, KC_WAKE, QK_BOOT,
     KC_6,   KC_7,   KC_8,   KC_9,   KC_0,   KC_MINS,
@@ -51,8 +52,31 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_NO,  KC_NO,  KC_NO,  KC_NO,
                     KC_NO,  KC_NO,
                             KC_NO,
-            KC_NO,  KC_NO,   KC_NO
+            KC_NO,  KC_NO,  KC_NO
     ),
+
+[_NAV] = LAYOUT(
+    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,
+    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,
+    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,KC_NO,
+    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,KC_NO,
+    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,KC_NO,
+            KC_NO,  KC_NO,  KC_NO,  KC_NO,
+                    KC_NO,  KC_NO,
+                            KC_NO,
+            KC_NO,  TO(_HOME),  KC_NO,
+
+    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,KC_NO, KC_NO, KC_NO,
+    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,
+    KC_NO,  KC_HOME,KC_PGUP,KC_NO,  KC_NO,  KC_NO,
+    KC_LEFT,KC_UP,  KC_DOWN,KC_RGHT,KC_NO,  KC_NO,
+    KC_NO,  KC_END, KC_PGDN,KC_NO,  KC_NO,  KC_NO,
+            KC_NO,  KC_NO,  KC_NO,  KC_NO,
+                    KC_NO,  KC_NO,
+                            KC_NO,
+            KC_NO,  KC_NO,  KC_NO
+    ),
+
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t* record) {
