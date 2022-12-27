@@ -29,7 +29,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_UP,  KC_DOWN,KC_LBRC,KC_RBRC,
                     KC_LCTL,KC_RGUI,
                             KC_PGUP,
-            KC_PGDN,LT(_PUNCT,KC_ENTER), KC_SPC
+            KC_PGDN,LT(_PUNCT,KC_ENTER), LT(_PUNCT,KC_SPC)
     ),
 
 [_PUNCT] = LAYOUT(
