@@ -1,14 +1,17 @@
 #include QMK_KEYBOARD_H
 
-enum custom_keycodes {
-    SCRNS = SAFE_RANGE,
-};
-
 enum layer_names {
     _HOME,
     _PUNCT,
     _NAV,
+    _MAC,
 };
+
+// MacOS shortcuts
+uint16_t const _APEX = LCTL(KC_UP); // App exposé
+uint16_t const _MCTL = LCTL(KC_DOWN); // Mission control
+uint16_t const _SCRNS = LGUI(LSFT(KC_4)); // Mission control
+uint16_t const _EMOJI = LCTL(LGUI(KC_SPACE)); // Emoji picker
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_HOME] = LAYOUT(
@@ -22,7 +25,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                             KC_HOME,
             KC_BSPC,TO(_NAV),KC_END,
 
-    KC_F9,  KC_F10, KC_F11, KC_F12, SCRNS,  KC_VOLD,  KC_VOLU, KC_WAKE, QK_BOOT,
+    KC_F9,  KC_F10, KC_F11, KC_F12, _SCRNS, KC_VOLD,  KC_VOLU, KC_WAKE, QK_BOOT,
     KC_6,   KC_7,   KC_8,   KC_9,   KC_0,   KC_MINS,
     KC_J,   KC_L,   KC_U,   KC_Y,   KC_SCLN,KC_BSLS,
     KC_M,   KC_N,   KC_E,   KC_I,   KC_O,   KC_QUOT,
@@ -30,7 +33,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_UP,  KC_DOWN,KC_LBRC,KC_RBRC,
                     KC_LCTL,KC_RGUI,
                             KC_PGUP,
-            KC_PGDN,LT(_PUNCT,KC_ENTER), LT(_PUNCT,KC_SPC)
+            KC_PGDN,LT(_MAC,KC_ENTER), LT(_PUNCT,KC_SPC)
     ),
 
 [_PUNCT] = LAYOUT(
@@ -77,13 +80,26 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_NO,  KC_NO,  KC_NO
     ),
 
-};
+[_MAC] = LAYOUT(
+    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,
+    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,
+    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,
+    KC_NO,  KC_NO,  KC_NO,  _MCTL,  _APEX,  KC_NO,
+    KC_NO,  KC_NO,  KC_NO,  KC_NO,  _EMOJI, KC_NO,
+            KC_NO,  KC_NO,  KC_NO,  KC_NO,
+                    KC_NO,  KC_NO,
+                            KC_NO,
+            KC_NO,  KC_NO,  KC_NO,
 
-bool process_record_user(uint16_t keycode, keyrecord_t* record) {
-    switch (keycode) {
-        case SCRNS:
-        SEND_STRING(SS_LGUI(SS_LSFT(SS_TAP(X_4))));
-        return false;
-    }
-    return true;
-}
+    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,
+    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,
+    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,
+    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,
+    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,
+            KC_NO,  KC_NO,  KC_NO,  KC_NO,
+                    KC_NO,  KC_NO,
+                            KC_NO,
+            KC_NO,  KC_NO,  KC_NO
+    ),
+
+};
