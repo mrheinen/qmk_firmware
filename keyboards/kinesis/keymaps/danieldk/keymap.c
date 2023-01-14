@@ -8,9 +8,11 @@ enum layer_names {
 };
 
 // MacOS shortcuts
-uint16_t const _APEX = LCTL(KC_UP); // App exposé
-uint16_t const _MCTL = LCTL(KC_DOWN); // Mission control
-uint16_t const _SCRNS = LGUI(LSFT(KC_4)); // Mission control
+uint16_t const _1PASS = LGUI(KC_BSLS);        // 1Password
+uint16_t const _APEX  = LCTL(KC_UP);          // App exposé
+uint16_t const _FQUIT = LALT(LGUI(KC_ESC));   // Force quit
+uint16_t const _MCTL  = LCTL(KC_DOWN);        // Mission control
+uint16_t const _SCRNS = LGUI(LSFT(KC_4));     // Screenshot
 uint16_t const _EMOJI = LCTL(LGUI(KC_SPACE)); // Emoji picker
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -83,9 +85,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_MAC] = LAYOUT(
     KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,
     KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,
-    KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,
     KC_NO,  KC_NO,  KC_NO,  _MCTL,  _APEX,  KC_NO,
-    KC_NO,  KC_NO,  KC_NO,  KC_NO,  _EMOJI, KC_NO,
+    KC_NO,  KC_NO,  KC_NO,  KC_NO,  _1PASS, KC_NO,
+    KC_NO,  KC_NO,  KC_NO,  _FQUIT, _EMOJI, KC_NO,
             KC_NO,  KC_NO,  KC_NO,  KC_NO,
                     KC_NO,  KC_NO,
                             KC_NO,
