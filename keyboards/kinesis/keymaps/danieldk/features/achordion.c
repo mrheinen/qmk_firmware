@@ -181,7 +181,11 @@ void achordion_task(void) {
 
 // Returns true if `pos` on the left hand of the keyboard, false if right.
 static bool on_left_hand(keypos_t pos) {
-#ifdef SPLIT_KEYBOARD
+#ifdef KEYBOARD_kinesis
+  // Left hand for Kinesis Advantage, function keys are not correctly
+  // handled, but who cares about function keys?
+  return pos.row < 6;
+#elif SPLIT_KEYBOARD
   return pos.row < MATRIX_ROWS / 2;
 #else
   return (MATRIX_COLS > MATRIX_ROWS) ? pos.col < MATRIX_COLS / 2
