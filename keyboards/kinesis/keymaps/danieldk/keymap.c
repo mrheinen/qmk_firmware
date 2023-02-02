@@ -35,7 +35,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                             KC_HOME,
             LT(_PUNCT,KC_BSPC),TO(_NAV),KC_END,
 
-    KC_F9,  KC_F10, KC_F11, KC_F12, _SCRNS, KC_VOLD,  KC_VOLU, KC_WAKE, QK_BOOT,
+    KC_F9,  KC_F10, KC_F11, KC_F12, KC_MUTE,KC_VOLD,  KC_VOLU, KC_WAKE, QK_BOOT,
     KC_6,   KC_7,   KC_8,   KC_9,   KC_0,   KC_MINS,
     KC_J,   KC_L,   KC_U,   KC_Y,   KC_SCLN,KC_BSLS,
     KC_M,   _N_SFT, _E_CMD, KC_I,   KC_O,   KC_QUOT,
@@ -94,7 +94,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,
     KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,
     KC_NO,  KC_NO,  KC_NO,  _MCTL,  _APEX,  KC_NO,
-    KC_NO,  KC_NO,  KC_NO,  KC_NO,  _1PASS, KC_NO,
+    KC_NO,  KC_NO,  KC_NO,  _SCRNS, _1PASS, KC_NO,
     KC_NO,  KC_NO,  KC_NO,  _FQUIT, _EMOJI, KC_NO,
             KC_NO,  KC_NO,  KC_NO,  KC_NO,
                     KC_NO,  KC_NO,
