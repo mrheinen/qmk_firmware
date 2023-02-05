@@ -30,6 +30,12 @@ static uint16_t hold_timer = 0;
 // Eagerly applied mods, if any.
 static uint8_t eager_mods = 0;
 
+enum {
+  HAND_LEFT,
+  HAND_RIGHT,
+  HAND_THUMB,
+};
+
 // Achordion's current state.
 enum {
   // A tap-hold key is pressed, but hasn't yet been settled as tapped or held.
@@ -179,24 +185,22 @@ void achordion_task(void) {
   }
 }
 
-// Returns true if `pos` on the left hand of the keyboard, false if right.
-static bool on_left_hand(keypos_t pos) {
 #ifdef KEYBOARD_kinesis
-  // Left hand for Kinesis Advantage, function keys are not correctly
-  // handled, but who cares about function keys?
-  return pos.row < 6;
-#elif SPLIT_KEYBOARD
-  return pos.row < MATRIX_ROWS / 2;
-#else
-  return (MATRIX_COLS > MATRIX_ROWS) ? pos.col < MATRIX_COLS / 2
-                                     : pos.row < MATRIX_ROWS / 2;
-#endif
+static uint8_t on_hand(keypos_t pos) {
+    if (pos.row > 0x1 && pos.row < 0xa && pos.col > 4 && pos.col < 7)
+        return HAND_THUMB;
+    else if (pos.row < 6)
+        return HAND_LEFT;
+    return HAND_RIGHT;
 }
+#else
+#error "on_hand is only defined for Kinesis keyboards"
+#endif
 
 bool achordion_opposite_hands(const keyrecord_t* tap_hold_record,
                               const keyrecord_t* other_record) {
-  return on_left_hand(tap_hold_record->event.key) !=
-         on_left_hand(other_record->event.key);
+  return on_hand(tap_hold_record->event.key) !=
+         on_hand(other_record->event.key);
 }
 
 // By default, use the BILATERAL_COMBINATIONS rule to consider the tap-hold key
