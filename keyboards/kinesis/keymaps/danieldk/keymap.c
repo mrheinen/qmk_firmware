@@ -14,6 +14,9 @@ uint16_t const _T_SFT = SFT_T(KC_T);  // Shift on indexes
 uint16_t const _N_SFT = SFT_T(KC_N);
 uint16_t const _S_CMD = CMD_T(KC_S);  // Command on middle
 uint16_t const _E_CMD = CMD_T(KC_E);
+uint16_t const _D_CTL = CTL_T(KC_D);  // Control on index down
+uint16_t const _H_CTL = CTL_T(KC_H);
+
 
 // MacOS shortcuts
 uint16_t const _1PASS = LGUI(KC_BSLS);        // 1Password
@@ -29,7 +32,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_EQL, KC_1,   KC_2,   KC_3,   KC_4,   KC_5,
     KC_TAB, KC_Q,   KC_W,   KC_F,   KC_P,   KC_B,
     KC_NO,  KC_A,   KC_R,   _S_CMD, _T_SFT, KC_G,
-    KC_LSFT,KC_Z,   KC_X,   KC_C,   KC_D,   KC_V,
+    KC_LSFT,KC_Z,   KC_X,   KC_C,   _D_CTL, KC_V,
             KC_GRV, CW_TOGG,KC_LEFT,KC_RGHT,
                     KC_LGUI,KC_LALT,
                             KC_HOME,
@@ -39,7 +42,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_6,   KC_7,   KC_8,   KC_9,   KC_0,   KC_MINS,
     KC_J,   KC_L,   KC_U,   KC_Y,   KC_SCLN,KC_BSLS,
     KC_M,   _N_SFT, _E_CMD, KC_I,   KC_O,   KC_QUOT,
-    KC_K,   KC_H,   KC_COMM,KC_DOT, KC_SLSH,KC_RSFT,
+    KC_K,   _H_CTL, KC_COMM,KC_DOT, KC_SLSH,KC_RSFT,
             KC_UP,  KC_DOWN,KC_LBRC,KC_RBRC,
                     KC_LCTL,KC_RGUI,
                             KC_PGUP,
