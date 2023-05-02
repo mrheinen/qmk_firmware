@@ -27,6 +27,8 @@ uint16_t const _FQUIT = LALT(LGUI(KC_ESC));   // Force quit
 uint16_t const _MCTL  = LCTL(KC_DOWN);        // Mission control
 uint16_t const _SCRNS = LGUI(LSFT(KC_4));     // Screenshot
 uint16_t const _EMOJI = LCTL(LGUI(KC_SPACE)); // Emoji picker
+uint16_t const _NEXTS = LCTL(KC_RIGHT);       // Next screen
+uint16_t const _PREVS = LCTL(KC_LEFT);        // Previous screen
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_HOME] = LAYOUT(
@@ -99,8 +101,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,
     KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,
     KC_NO,  KC_NO,  KC_NO,  _MCTL,  _APEX,  KC_NO,
-    KC_NO,  KC_NO,  KC_NO,  _SCRNS, _1PASS, KC_NO,
-    KC_NO,  KC_NO,  KC_NO,  _FQUIT, _EMOJI, KC_NO,
+    KC_NO,  KC_NO,  KC_NO,  _SCRNS, _1PASS, _EMOJI,
+    KC_NO,  KC_NO,  KC_NO,  _PREVS, _NEXTS, _FQUIT,
             KC_NO,  KC_NO,  KC_NO,  KC_NO,
                     KC_NO,  KC_NO,
                             KC_NO,
