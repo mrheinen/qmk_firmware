@@ -1,0 +1,10 @@
+{
+    "keyboard_name": "kinT (kintbp)",
+    "manufacturer": "https://github.com/dcpedit/kint",
+    "usb": {
+        "vid": "0xDC9E",
+        "pid": "0x345C",
+        "device_version": "0.0.1"
+    },
+    "debounce": 20
+}
